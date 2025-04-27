@@ -1,0 +1,133 @@
+openapi: 3.0.3
+info:
+  title: Api Vendas Online
+  version: 1.0.0
+  description: API para desafio final de bootcamp arquitetura de software pela XPE
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /clients:
+    post:
+      summary: Criar um novo cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "201":
+          description: Cliente criado com sucesso
+        "400":
+          description: Erro para criar cliente
+    get:
+      summary: Listar todos os clientes
+      responses:
+        "200":
+          description: Lista de clientes
+
+  /clients/{id}:
+    get:
+      summary: Buscar cliente por ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: ID do cliente
+      responses:
+        "200":
+          description: Cliente encontrado
+        "404":
+          description: Cliente não encontrado
+    put:
+      summary: Atualizar cliente por ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: ID do cliente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInput"
+      responses:
+        "200":
+          description: Cliente atualizado com sucesso
+    delete:
+      summary: Deletar cliente por ID
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: ID do cliente
+      responses:
+        "204":
+          description: Cliente deletado com sucesso
+
+  /clients/by-name/{name}:
+    get:
+      summary: Buscar clientes por nome
+      parameters:
+        - in: path
+          name: name
+          schema:
+            type: string
+          required: true
+          description: Nome do cliente
+      responses:
+        "200":
+          description: Cliente(s) encontrado(s)
+
+  /clients/count:
+    get:
+      summary: Contar total de clientes
+      responses:
+        "200":
+          description: Número total de clientes
+
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        cpf:
+          type: string
+          example: "123.456.789-00"
+        data_nascimento:
+          type: string
+          format: date
+          example: "1990-01-01"
+        nome_completo:
+          type: string
+          example: "Raphael de Oliveira"
+
+    ClientInput:
+      type: object
+      required:
+        - cpf
+        - data_nascimento
+        - nome_completo
+      properties:
+        cpf:
+          type: string
+          example: "123.456.789-00"
+        data_nascimento:
+          type: string
+          format: date
+          example: "1990-01-01"
+        nome_completo:
+          type: string
+          example: "Raphael de Oliveira"
