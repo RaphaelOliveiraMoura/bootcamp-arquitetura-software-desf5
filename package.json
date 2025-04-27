@@ -1,0 +1,29 @@
+{
+  "name": "bootcamp-arquitetura-software-desf5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start": "node build/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/swagger": "^9.5.0",
+    "@fastify/swagger-ui": "^5.2.2",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.3.2",
+    "pg": "^8.15.6",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.14",
+    "@types/yamljs": "^0.2.34",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
