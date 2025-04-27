@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16.2-alpine
+    container_name: arquitetura-software-database
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: vendas_online
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+    container_name: arquitetura-software-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
