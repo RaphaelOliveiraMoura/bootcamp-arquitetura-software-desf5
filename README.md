@@ -30,7 +30,7 @@ O desafio consiste na criação e documentação de uma solução para uma empre
 >
 > Sua responsabilidade é construir e implantar uma solução que disponibilize publicamente dados de Cliente/Produto/Pedido (algum domínio) aos parceiros da empresa.
 >
-> Para isso, será necessário projetar, documentar e implantar uma API REST, no padrão arquitetural MVC, que exponha um endpoint capaz de realizar um CRUD dos dados (e um pouco mais).
+> Para isso, será necessário projetar, documentar e implantar uma API REST, no padrão arquitetural MVC, que exponha um endpoint capaz de realizar um CRUD dos dados.
 
 ---
 
