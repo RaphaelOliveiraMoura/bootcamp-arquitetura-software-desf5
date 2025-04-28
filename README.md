@@ -6,7 +6,7 @@ Projeto desenvolvido pelo aluno: `Raphael de Oliveira Moura`
 
 Consiste na criação e documentação de uma solução para uma empresa de vendas on-line.
 
-![Gif do projeto executando](https://)
+![Gif do projeto executando](./docs/swagger.png)
 
 **Enunciado:**
 
@@ -97,3 +97,21 @@ Segue o diagrama com o fluxo de dados em cada camada da aplicação:
 ## Endpoints desenvolvidos
 
 ![imagem do swagger com todos os endpoits](./docs/swagger-endpoints.png)
+
+## Diagramas C4
+
+### C4 Contexto:
+
+![diagrama c4 de contexto](./docs/c4-contexto.png)
+
+### C4 Container:
+
+![diagrama c4 de container](./docs/c4-container.png)
+
+### C4 Componente:
+
+![diagrama c4 de componente](./docs/c4-componente.png)
+
+### C4 Classe:
+
+![diagrama c4 de classe](./docs/c4-classe.png)
