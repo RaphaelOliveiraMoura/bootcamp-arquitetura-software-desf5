@@ -1,117 +1,137 @@
 # Bootcamp Arquitetura de Software
 
-Esse repostório consiste no `desafio final` do primeiro bootcamp realizado na pós graduação de arquitetura de software na XP Educação.
+Esse repositório contém o **desafio final** do primeiro bootcamp realizado na pós-graduação de Arquitetura de Software da XP Educação.
 
-Projeto desenvolvido pelo aluno: `Raphael de Oliveira Moura`
+Projeto desenvolvido por: **Raphael de Oliveira Moura**
 
-Consiste na criação e documentação de uma solução para uma empresa de vendas on-line.
+O desafio consiste na criação e documentação de uma solução para uma empresa de vendas online.
 
 ![Gif do projeto executando](./docs/swagger.png)
 
-**Enunciado:**
+---
 
-> Você é Arquiteto(a) de Software em uma grande empresa de vendas on-line.
->
-> Você é responsável por construir e implantar uma solução que disponibilize publicamente dados de Cliente/Produto/Pedido (algum domínio) aos parceiros da empresa.
->
-> Para isso, você vai Projetar, Documentar e Implantar uma API REST, no padrão arquitetural MVC, que exponha um endpoint capaz de realizar um CRUD dos dados (e um pouco mais).
+## Sumário
 
-# Configurando o projeto
-
-## Preparando ambiente
-
-Primeiro será necessário fazer o donwload do `docker` e `docker compose`.
-
-1. A maneira mais simples é baixar o [Docker Desktop](https://www.docker.com/products/docker-desktop/) que irá instalar todas as ferramentas necessárias para executar o docker
-
-2. Ou caso prefira você pode baixar separadamente o [docker](https://docs.docker.com/engine/install/) e [docker compose](https://docs.docker.com/compose/install/) de acordo com seu sistema operacional
+- [Enunciado](#enunciado)
+- [Configurando o Projeto](#configurando-o-projeto)
+  - [Preparando Ambiente](#preparando-ambiente)
+  - [Executando o Projeto](#executando-o-projeto)
+- [Detalhes do Projeto](#detalhes-do-projeto)
+  - [Organização de Pastas](#organização-de-pastas)
+  - [Fluxo de Dados](#fluxo-de-dados)
+  - [Endpoints Desenvolvidos](#endpoints-desenvolvidos)
+  - [Diagramas C4](#diagramas-c4)
 
 ---
 
-Depois de baixar o docker, basta clonar o projeto na sua máquina:
+# Enunciado
+
+> Você é Arquiteto(a) de Software em uma grande empresa de vendas online.
+>
+> Sua responsabilidade é construir e implantar uma solução que disponibilize publicamente dados de Cliente/Produto/Pedido (algum domínio) aos parceiros da empresa.
+>
+> Para isso, será necessário projetar, documentar e implantar uma API REST, no padrão arquitetural MVC, que exponha um endpoint capaz de realizar um CRUD dos dados (e um pouco mais).
+
+---
+
+# Configurando o Projeto
+
+## Preparando Ambiente
+
+Primeiramente, será necessário fazer o download do `Docker` e do `Docker Compose`.
+
+1. A maneira mais simples é baixar o [Docker Desktop](https://www.docker.com/products/docker-desktop/), que instala todas as ferramentas necessárias para rodar o Docker.
+
+2. Caso prefira, você pode baixar separadamente o [Docker](https://docs.docker.com/engine/install/) e o [Docker Compose](https://docs.docker.com/compose/install/) de acordo com o seu sistema operacional.
+
+---
+
+Após instalar o Docker, clone o projeto na sua máquina:
 
 ```sh
-# clonando usando https
+# Clonando via HTTPS
 $ git clone https://github.com/RaphaelOliveiraMoura/bootcamp-arquitetura-software-desf5.git
 
-
-# ou usando ssh
+# Ou clonando via SSH
 $ git clone git@github.com:RaphaelOliveiraMoura/bootcamp-arquitetura-software-desf5.git
 ```
 
-Para isso será necessário ter a ferramenta do [git](https://git-scm.com/downloads) na sua máquina.
+> Para isso, é necessário ter o [Git](https://git-scm.com/downloads) instalado em sua máquina.
 
-Uma alternativa também é baixar os arquivos do projeto diretamente pela interface do github, selecionando a opção `Download ZIP`
+Alternativamente, é possível baixar os arquivos do projeto diretamente pela interface do GitHub, selecionando a opção `Download ZIP`.
 
-## Executando o projeto
+## Executando o Projeto
 
-Para rodar o projeto na sua máquina execute o comando (dentro da pasta do projeto):
+Dentro da pasta do projeto, execute o comando:
 
 ```sh
 $ docker-compose up
 ```
 
-Após alguns segundos, você pode tentar acessar a url http://localhost:3000/docs e verificar se o projeto está rodando corretamente. Essa URL abre uma telinha com o swagger, onde é possível `visualizar todos os endpoints` desenvolvidos além de conseguir `simular e fazer testes` em cada uma das rotas.
+Após alguns segundos, acesse a URL [http://localhost:3000/docs](http://localhost:3000/docs) para verificar se o projeto está rodando corretamente. Essa URL abrirá uma tela com o Swagger, onde é possível:
 
-> Lembrando que a API é exposta na porta **3000** e o banco de dados na porta **5432**, então antes de executar o projeto certifique-se que essas portas não estão sendo utilizadas por outros serviços na sua máquina.
+- Visualizar todos os endpoints desenvolvidos
+- Simular e realizar testes em cada rota
 
-# Detalhes do projeto
+> **Importante:** A API é exposta na porta **3000** e o banco de dados na porta **5432**. Certifique-se de que essas portas estão livres antes de iniciar o projeto.
 
-O projeto consiste em uma API REST desenvolvida utilizando [nodejs](https://nodejs.org/pt) com [typescript](https://www.typescriptlang.org/). Como biblioteca para criação do servidor foi utilizado o [fastify](https://fastify.dev/).
+# Detalhes do Projeto
 
-Para documentação da api foi utilizado a ferramenta `swagger`, que ao executar o projeto fica acessível pela url http://localhost:3000/docs. Pelo swagger é possível visualizar todos os endpoits desenvolvidos em cima do domínio de `clientes`.
+O projeto consiste em uma API REST desenvolvida utilizando [Node.js](https://nodejs.org/pt) com [TypeScript](https://www.typescriptlang.org/), e a biblioteca [Fastify](https://fastify.dev/) para criação do servidor.
 
-![imagem do swagger](./docs/swagger.png)
+A documentação da API foi feita com o `Swagger`, disponível em [http://localhost:3000/docs](http://localhost:3000/docs), permitindo a visualização de todos os endpoints do domínio `clientes`.
 
-Para persistência dos dados foi utilizado o banco de dados `postgres`.
+![Imagem do Swagger](./docs/swagger.png)
 
-Para executar todos os componentes do projeto foi utilizado o `docker`, desse modo para fazer toda a configuração do ambiente fica muito mais fácil, não sendo necessário por exemplo ficar instalando o banco de dados, nodejs localmente para executar o projeto (tudo fica por conta do docker).
+A persistência dos dados é realizada utilizando o banco de dados `Postgres`.
 
-## Organização de pastas
+Toda a infraestrutura (banco de dados e API) é orquestrada pelo `Docker`, simplificando o processo de configuração e evitando a necessidade de instalações locais de Node.js e Postgres.
 
-Para construção do projeto foi utilizado o MVC (Model, View, Controller).
+## Organização de Pastas
 
-Segue abaixo a definicão de estrutura de pastas:
+A arquitetura do projeto segue o padrão **MVC** (Model, View, Controller).
 
-```SH
+Estrutura de pastas:
+
+```sh
 📂 src
     📂 @shared
-        📂 database #: configurações de conexão com banco de dados + migrations, com a implementação utilizando postgres
-        📂 http-server #: configurações do servidor http, com a implementação utilizando fastify
+        📂 database        # Configurações de conexão com banco de dados + migrations utilizando Postgres
+        📂 http-server      # Configurações do servidor HTTP com Fastify
 
-    📂 controller #: arquivos da camada de controller do MVC
+    📂 controller            # Camada Controller do MVC
 
-    📂 model #: arquivos da camada de modelo do MVC
-        📄 *.entity.ts #: arquivos com definição/tipagem das entidades
-        📄 *.repository.ts #: arquivos com as regras de persistência das entidades
+    📂 model                 # Camada Model do MVC
+        📄 *.entity.ts       # Definição/tipagem das entidades
+        📄 *.repository.ts   # Regras de persistência das entidades
 
-    📂 view #: arquivos da camada de view do MVC
+    📂 view                  # Camada View do MVC
 ```
 
-## Fluxo de dados
+## Fluxo de Dados
 
-Segue o diagrama com o fluxo de dados em cada camada da aplicação:
+Diagrama com o fluxo de dados nas camadas da aplicação:
 
-![diagrama com fluxo de dados](./docs/fluxo-dados.png)
+![Diagrama de fluxo de dados](./docs/fluxo-dados.png)
 
-## Endpoints desenvolvidos
+## Endpoints Desenvolvidos
 
-![imagem do swagger com todos os endpoits](./docs/swagger-endpoints.png)
+![Imagem do Swagger com todos os endpoints](./docs/swagger-endpoints.png)
 
 ## Diagramas C4
 
-### C4 Contexto:
+### C4 - Contexto
 
-![diagrama c4 de contexto](./docs/c4-contexto.png)
+![Diagrama C4 de Contexto](./docs/c4-contexto.png)
 
-### C4 Container:
+### C4 - Container
 
-![diagrama c4 de container](./docs/c4-container.png)
+![Diagrama C4 de Container](./docs/c4-container.png)
 
-### C4 Componente:
+### C4 - Componente
 
-![diagrama c4 de componente](./docs/c4-componente.png)
+![Diagrama C4 de Componente](./docs/c4-componente.png)
 
-### C4 Classe:
+### C4 - Classe
 
-![diagrama c4 de classe](./docs/c4-classe.png)
+![Diagrama C4 de Classe](./docs/c4-classe.png)
